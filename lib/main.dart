@@ -2,6 +2,7 @@ import 'package:donationproject/core/routing/routes.dart';
 import 'package:donationproject/view/screens/donor/donor_main_screen.dart';
 import 'package:donationproject/view/screens/sign_in.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
@@ -22,6 +23,26 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         initialRoute: Routes.donorMainScreen,
+        locale: Locale('ar'), // اجعل اللغة العربية لغة التطبيق
+        supportedLocales: [
+          Locale('en'), // الإنجليزية
+          Locale('ar'), // العربية
+        ],
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        // هذا مهم لعرض الاتجاه الصحيح حسب اللغة
+        localeResolutionCallback: (locale, supportedLocales) {
+          if (locale == null) return supportedLocales.first;
+          for (var supportedLocale in supportedLocales) {
+            if (supportedLocale.languageCode == locale.languageCode) {
+              return supportedLocale;
+            }
+          }
+          return supportedLocales.first;
+        },
         routes: {
           Routes.donorMainScreen: (context) => const DonorMainScreen(),
           Routes.signInScreen: (context) => const SignIn(),

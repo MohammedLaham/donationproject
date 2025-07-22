@@ -1,4 +1,3 @@
-
 import 'package:donationproject/view/screens/donor/donor_donation_screen.dart';
 import 'package:donationproject/view/screens/donor/donor_home_screen.dart';
 import 'package:donationproject/view/screens/donor/donor_profile_screen.dart';
@@ -29,7 +28,6 @@ class _DonorMainScreenState extends State<DonorMainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Donor Home')),
       bottomNavigationBar: CustomBottomNavBar(
         currentIndex: _selectedIndex,
         onTap: (int value) {
