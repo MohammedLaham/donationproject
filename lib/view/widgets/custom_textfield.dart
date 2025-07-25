@@ -13,6 +13,7 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final double vertical;
   final double horizantal;
+  final double borderRadius;
   final IconData? prefixIcons;
 
   const CustomTextField({
@@ -28,6 +29,7 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     this.vertical = 0,
     this.horizantal = 0,
+    this.borderRadius = 20,
   });
 
   @override
@@ -42,7 +44,7 @@ class CustomTextField extends StatelessWidget {
         prefixIcon: prefixIcons != null
             ? Icon(prefixIcons, color: textColor)
             : null,
-        
+
         contentPadding: EdgeInsets.symmetric(
           vertical: vertical,
           horizontal: horizantal,
@@ -58,10 +60,10 @@ class CustomTextField extends StatelessWidget {
         fillColor: backgroundColor,
         border: OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(borderRadius),
           borderSide: BorderSide.none,
         ),
       ),

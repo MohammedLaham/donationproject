@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Colors
-const Color primaryColor = Color(0xFF129412); // اللون الأخضر اللي بالتصميم
-//const Color primaryColor = Color(0xFF009963); // اللون الأخضر اللي طلبته
+const Color greenColor = Color(0xFF129412); // اللون الأخضر اللي بالتصميم
+const Color primaryColor = Color(0xFF009963); // اللون الأخضر اللي طلبته
 const Color secondaryColor = Color(
   0xFFE5F5F0,
 ); // لون فاتح يستخدم غالباً في الخلفيات أو الأزرار
@@ -58,4 +58,9 @@ TextStyle font16BlackMedium = TextStyle(
   fontWeight: FontWeightHeper.medium,
   color: mainBlack,
 );
-
+TextStyle font14BlackRegular = TextStyle(
+  fontSize: 14.sp,
+  fontWeight: FontWeightHeper.normal,
+  color: mainBlack,
+  fontFamily: 'Cairo',
+);

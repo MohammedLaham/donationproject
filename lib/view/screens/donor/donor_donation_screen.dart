@@ -1,4 +1,5 @@
 import 'package:donationproject/constant.dart';
+import 'package:donationproject/core/helpers/spacing.dart';
 import 'package:donationproject/view/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,6 +32,12 @@ class DonorDonationScreen extends StatelessWidget {
                 Text(
                   'شكرًا لعطائك المستمر! 👏',
                   style: font16BlackBold.copyWith(fontSize: 18.sp),
+                ),
+                verticalSpacing(8),
+                Text(
+                  textAlign: TextAlign.center,
+                  'سجل تبرعاتك السابقة يظهر أدناه، ويمكنك اختيار إعادة التبرع متى شئت.',
+                  style: font14BlackRegular,
                 ),
               ],
             ),

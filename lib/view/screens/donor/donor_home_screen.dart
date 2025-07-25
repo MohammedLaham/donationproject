@@ -16,7 +16,13 @@ class DonorHomeScreen extends StatefulWidget {
 }
 
 class _DonorHomeScreenState extends State<DonorHomeScreen> {
-  final TextEditingController _searchController = TextEditingController();
+  late TextEditingController _searchController;
+
+  @override
+  void initState() {
+    _searchController = TextEditingController();
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -24,6 +30,13 @@ class _DonorHomeScreenState extends State<DonorHomeScreen> {
     super.dispose();
   }
 
+  List<OrphanCard> orphanList = [
+    OrphanCard(name: 'أحمد سعيد', age: 3, lastDonation: 2, isdisable: false),
+    OrphanCard(name: 'أحمد ياسر', age: 9, lastDonation: 30, isdisable: true),
+    OrphanCard(name: 'علي محمد', age: 5, lastDonation: 10, isdisable: false),
+    OrphanCard(name: 'سارة علي', age: 7, lastDonation: 15, isdisable: true),
+    OrphanCard(name: 'مريم أحمد', age: 4, lastDonation: 5, isdisable: false),
+  ];
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -81,88 +94,93 @@ class _DonorHomeScreenState extends State<DonorHomeScreen> {
             ),
           ],
         ),
-        Padding(
-          padding: EdgeInsetsDirectional.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Search and filter
-              CustomTextField(
-                horizantal: 10.w,
-                hintText: 'ابحث ...',
-                prefixIcons: Icons.search,
-                textColor: mainGray,
-                label: '',
-                backgroundColor: lightGray,
-                controller: _searchController,
-              ),
-              verticalSpacing(16.h),
-              Text('قائمة الأيتام', style: font20BlackBold),
-              verticalSpacing(16.h),
-              // orphan list
-              Card(
-                shadowColor: Color(0xFF129412),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-                child: ListTile(
-                  title: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text('أحمد ياسر', style: font16BlackBold),
-                          Spacer(),
-                          Text('9 سنوات', style: font12BlackMedium),
-                        ],
+        Expanded(
+          child: Padding(
+            padding: EdgeInsetsDirectional.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Search and filter
+                Row(
+                  children: [
+                    Expanded(
+                      // البحث
+                      child: CustomTextField(
+                        horizantal: 10.w,
+                        hintText: 'ابحث ...',
+                        borderRadius: 4,
+                        prefixIcons: Icons.search,
+                        textColor: mainGray,
+                        label: '',
+                        backgroundColor: lightGray,
+                        controller: _searchController,
                       ),
-                      verticalSpacing(9.h),
-                      Row(
-                        children: [
-                          Icon(Icons.check_circle, color: Colors.green),
-                          horizontalSpacing(4.w),
-                          Text('يعاني من إعاقة', style: font12BlackMedium),
-                          Spacer(),
-                          SvgPicture.asset('assets/svgs/ic_donation.svg'),
+                    ),
+                    //زر الفلتر
+                    OutlinedButton(
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStateProperty.all(greenColor),
+                        minimumSize: WidgetStateProperty.all(Size(36, 36)),
+                        padding: WidgetStateProperty.all(
+                          const EdgeInsets.all(4),
+                        ),
+                        shape: WidgetStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: SvgPicture.asset('assets/svgs/ic_filter.svg'),
+                    ),
+                  ],
+                ),
+                verticalSpacing(16.h),
+                Text('قائمة الأيتام', style: font20BlackBold),
+                // verticalSpacing(16.h),
+                // orphan list
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: orphanList.length,
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return OrphanCard(
+                        name: orphanList[index].name,
+                        age: orphanList[index].age,
+                        lastDonation: orphanList[index].lastDonation,
+                        isdisable: orphanList[index].isdisable,
+                      );
+                    },
+                  ),
+                ),
 
-                          horizontalSpacing(6.w),
-                          Text('آخر تبرع منذ 2 يوم', style: font12BlackMedium),
-                        ],
-                      ),
-                    ],
-                  ),
-                  leading: CircleAvatar(
-                    backgroundColor: Colors.grey[300],
-                    radius: 22.5,
-                    child: Icon(Icons.person, color: Colors.white, size: 32),
-                  ),
-                  onTap: () {
-                    //TODO: Implement orphan details navigation
-                  },
-                  contentPadding: EdgeInsetsDirectional.all(16.0),
-                ),
-              ),
-            ],
+                // OrphanCard(
+                //   name: 'أحمد ياسر',
+                //   age: 9,
+                //   lastDonation: 30,
+                //   isdisable: true,
+                // ),
+              ],
+            ),
           ),
         ),
       ],
     );
   }
 }
-  // Row(
-  //                       children: [
-  //                         SvgPicture.asset('assets/svgs/ic_donation.svg'),
+// Row(
+//                       children: [
+//                         SvgPicture.asset('assets/svgs/ic_donation.svg'),
 
-  //                         horizontalSpacing(6.w),
-  //                         Flexible(
-  //                           child: Text(
-  //                             'آخر تبرع منذ 2 يوم',
-  //                             style: font12BlackMedium,
-  //                           ),
-  //                         ),
-  //                       ],
-  //                     ),
-                 
+//                         horizontalSpacing(6.w),
+//                         Flexible(
+//                           child: Text(
+//                             'آخر تبرع منذ 2 يوم',
+//                             style: font12BlackMedium,
+//                           ),
+//                         ),
+//                       ],
+//                     ),
 
 //  ColoredBox(
 //             color: primaryColor,
@@ -223,16 +241,15 @@ class _DonorHomeScreenState extends State<DonorHomeScreen> {
 //               ),
 //             ),
 //           ),
-          
 
-          // trailing: Column(
-          //           children: [
-          //             Row(
-          //               children: [
-          //                 Icon(Icons.monetization_on, color: primaryColor),
-          //                 horizontalSpacing(4.w),
-          //                 Text('آخر تبرع منذ 2 يوم', style: font12BlackMedium),
-          //               ],
-          //             ),
-          //           ],
-          //         ),
+// trailing: Column(
+//           children: [
+//             Row(
+//               children: [
+//                 Icon(Icons.monetization_on, color: primaryColor),
+//                 horizontalSpacing(4.w),
+//                 Text('آخر تبرع منذ 2 يوم', style: font12BlackMedium),
+//               ],
+//             ),
+//           ],
+//         ),
