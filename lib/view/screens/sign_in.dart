@@ -35,13 +35,21 @@ class _SignInState extends State<SignIn> {
       body: Column(
         children: [
           SizedBox(height: 80),
-          Center(
-            child: CircleAvatar(
-              radius: 80,
-              backgroundImage: AssetImage('assets/images/logo.png'),
-              backgroundColor: Colors.transparent,
+
+
+            Center(
+
+              child: ClipOval (
+                child: Image.asset(
+                  'assets/images/logo.png',
+                  width: 160,
+                  height: 160,
+                  fit: BoxFit.cover,
+
+                ),
+              ),
             ),
-          ),
+
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Form(
