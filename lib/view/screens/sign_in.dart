@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constant.dart';
+import '../../core/color/constant.dart';
 import '../widgets/button.dart';
 import '../widgets/custom_textfield.dart';
 
@@ -12,6 +12,7 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  bool rememberMe = false;
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>(); // مفتاح النموذج للتأكد من الإدخال
@@ -19,49 +20,129 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context); // يرجع للصفحة السابقة
-          },
-        ),
-        title: Text('تسجيل الدخول '),
-        centerTitle: true,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              Text('اهلا وسهلا'),
-              // اسم المستخدم
-              CustomTextField(prefixIcons: Icons.email,label: 'Email / Mobile Number'),
-              SizedBox(height: 16),
-
-              // كلمة المرور
-              CustomTextField(prefixIcons : Icons.lock,label: 'Password'),
-              SizedBox(height: 24),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  'Forget Password?',
-                  style: TextStyle(color: primaryColor),
-                ),
-              ),
-              // زر الدخول
-              Button(
-                borderRadius: 30,
-                width:  MediaQuery.of(context).size.width * 0.8,
-                text: 'Login',
-                backgr: primaryColor,
-                color: secondaryColor,
-                onPressed: () {},
-              ),
-            ],
+      //
+      // appBar: AppBar(
+      //
+      //   leading: IconButton(
+      //     icon: Icon(Icons.arrow_back),
+      //     onPressed: () {
+      //       Navigator.pop(context); // يرجع للصفحة السابقة
+      //     },
+      //   ),
+      //   title: Text('تسجيل الدخول '),
+      //   centerTitle: true,
+      // ),
+      body: Column(
+        children: [
+          SizedBox(height: 80),
+          Center(
+            child: CircleAvatar(
+              radius: 80,
+              backgroundImage: AssetImage('assets/images/logo.png'),
+              backgroundColor: Colors.transparent,
+            ),
           ),
-        ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Welcome',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: primaryColor,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    'Log in to continue',
+                    style: TextStyle(fontSize: 18, color: primaryColor),
+                  ),
+                  SizedBox(height: 30),
+                  // اسم المستخدم
+                  CustomTextField(
+                    prefixIcons: Icons.email,
+                    label: 'Email / Mobile Number',
+                  ),
+                  SizedBox(height: 16),
+
+                  // كلمة المرور
+                  CustomTextField(prefixIcons: Icons.lock, label: 'Password'),
+                  SizedBox(height: 24),
+                  Row(
+                    children: [
+                      Transform.scale(
+                        scale: 1.0, // تكبير الشكل
+                        child: Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle, // دائرة
+                            // حواف خضراء
+                          ),
+                          child: Checkbox(
+                            value: rememberMe,
+                            onChanged: (value) {
+                              setState(() {
+                                rememberMe = value!;
+                              });
+                            },
+                            activeColor: primaryColor,
+                            // لون الصح
+                            checkColor: secondaryColor,
+                            // لون علامة الصح
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                50,
+                              ), // يجعل الزوايا دائرية
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      Text("Remember me"),
+                      Spacer(flex: 20),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Forget Password?',
+                          style: TextStyle(color: primaryColor),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  // زر الدخول
+                  Button(
+                    borderRadius: 30,
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    text: 'Login',
+                    backgr: primaryColor,
+                    color: secondaryColor,
+                    onPressed: () {},
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "Don't have an account?",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Create Account',
+                          style: TextStyle(color: primaryColor, fontSize: 18),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
