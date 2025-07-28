@@ -9,6 +9,7 @@ class OrphanCard extends StatelessWidget {
   final int age;
   final int lastDonation;
   final bool isdisable;
+  final void Function() onTap;
 
   const OrphanCard({
     Key? key,
@@ -16,6 +17,7 @@ class OrphanCard extends StatelessWidget {
     required this.age,
     required this.lastDonation,
     required this.isdisable,
+    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -65,7 +67,7 @@ class OrphanCard extends StatelessWidget {
 
                 horizontalSpacing(4.w),
                 Text(
-                  isdisable ? 'يعاني من إعاقة' : ' لا يعاني من إعاقة',
+                  isdisable ? 'يعاني من إعاقة' : 'لا يعاني من إعاقة',
                   style: font12BlackMedium,
                 ),
                 Spacer(),
@@ -85,9 +87,7 @@ class OrphanCard extends StatelessWidget {
           radius: 22.5,
           child: Icon(Icons.person, color: Colors.white, size: 32),
         ),
-        onTap: () {
-          //TODO: Implement orphan details navigation
-        },
+        onTap: onTap,
         contentPadding: EdgeInsetsDirectional.all(16.0),
       ),
     );

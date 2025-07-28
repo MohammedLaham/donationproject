@@ -1,4 +1,5 @@
 import 'package:donationproject/constant.dart';
+import 'package:donationproject/core/routing/routes.dart';
 import 'package:donationproject/view/widgets/custom_app_bar.dart';
 import 'package:donationproject/view/widgets/custom_card.dart';
 import 'package:donationproject/view/widgets/custom_textfield.dart';
@@ -30,12 +31,12 @@ class _DonorHomeScreenState extends State<DonorHomeScreen> {
     super.dispose();
   }
 
-  List<OrphanCard> orphanList = [
-    OrphanCard(name: 'أحمد سعيد', age: 3, lastDonation: 2, isdisable: false),
-    OrphanCard(name: 'أحمد ياسر', age: 9, lastDonation: 30, isdisable: true),
-    OrphanCard(name: 'علي محمد', age: 5, lastDonation: 10, isdisable: false),
-    OrphanCard(name: 'سارة علي', age: 7, lastDonation: 15, isdisable: true),
-    OrphanCard(name: 'مريم أحمد', age: 4, lastDonation: 5, isdisable: false),
+  List orphanList = [
+    ['أحمد سعيد', 3, 2, false],
+    ['أحمد ياسر', 9, 30, true],
+    ['علي محمد', 5, 10, false],
+    ['سارة علي', 7, 15, true],
+    ['مريم أحمد', 4, 5, false],
   ];
   @override
   Widget build(BuildContext context) {
@@ -145,21 +146,19 @@ class _DonorHomeScreenState extends State<DonorHomeScreen> {
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       return OrphanCard(
-                        name: orphanList[index].name,
-                        age: orphanList[index].age,
-                        lastDonation: orphanList[index].lastDonation,
-                        isdisable: orphanList[index].isdisable,
+                        name: orphanList[index][0],
+                        age: orphanList[index][1],
+                        lastDonation: orphanList[index][2],
+                        isdisable: orphanList[index][3],
+                        onTap: () {
+                          //TODO: send orphan info
+                          Navigator.pushNamed(context, Routes.orphanInfoScreen);
+                        },
                       );
                     },
                   ),
                 ),
 
-                // OrphanCard(
-                //   name: 'أحمد ياسر',
-                //   age: 9,
-                //   lastDonation: 30,
-                //   isdisable: true,
-                // ),
               ],
             ),
           ),
@@ -168,88 +167,3 @@ class _DonorHomeScreenState extends State<DonorHomeScreen> {
     );
   }
 }
-// Row(
-//                       children: [
-//                         SvgPicture.asset('assets/svgs/ic_donation.svg'),
-
-//                         horizontalSpacing(6.w),
-//                         Flexible(
-//                           child: Text(
-//                             'آخر تبرع منذ 2 يوم',
-//                             style: font12BlackMedium,
-//                           ),
-//                         ),
-//                       ],
-//                     ),
-
-//  ColoredBox(
-//             color: primaryColor,
-//             child: Padding(
-//               padding: EdgeInsetsDirectional.symmetric(
-//                 vertical: 8,
-//                 horizontal: 16,
-//               ),
-//               child: Row(
-//                 children: [
-//                   // الشخص
-//                   CircleAvatar(
-//                     backgroundColor: Colors.grey[300],
-//                     radius: 22.5,
-//                     child: Icon(Icons.person, color: Colors.white, size: 32),
-//                   ),
-//                   horizontalSpacing(8),
-//                   Text('مرحباً بك', style: font20WhiteBold),
-//                   Spacer(),
-//                   // أيقونة االشات
-//                   GestureDetector(
-//                     child: SvgPicture.asset('assets/svgs/message.svg'),
-//                     onTap: () {},
-//                   ),
-//                   horizontalSpacing(16),
-//                   Stack(
-//                     clipBehavior: Clip.none,
-//                     children: [
-//                       GestureDetector(
-//                         child: SvgPicture.asset('assets/svgs/notification.svg'),
-//                         onTap: () {},
-//                       ),
-//                       PositionedDirectional(
-//                         end: -10,
-//                         top: -15,
-//                         child: Container(
-//                           padding: const EdgeInsets.all(4),
-//                           decoration: BoxDecoration(
-//                             color: Colors.white,
-//                             shape: BoxShape.circle,
-//                           ),
-//                           constraints: const BoxConstraints(
-//                             minWidth: 16,
-//                             minHeight: 16,
-//                           ),
-//                           child: Text(
-//                             '4',
-//                             style: font14BlackMedium.copyWith(
-//                               color: primaryColor,
-//                             ),
-//                             textAlign: TextAlign.center,
-//                           ),
-//                         ),
-//                       ),
-//                     ],
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ),
-
-// trailing: Column(
-//           children: [
-//             Row(
-//               children: [
-//                 Icon(Icons.monetization_on, color: primaryColor),
-//                 horizontalSpacing(4.w),
-//                 Text('آخر تبرع منذ 2 يوم', style: font12BlackMedium),
-//               ],
-//             ),
-//           ],
-//         ),

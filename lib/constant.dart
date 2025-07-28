@@ -64,3 +64,9 @@ TextStyle font14BlackRegular = TextStyle(
   color: mainBlack,
   fontFamily: 'Cairo',
 );
+TextStyle font20BlackSemiBold= TextStyle(
+  fontSize: 20.sp,
+  fontWeight: FontWeightHeper.semiBold,
+  color: mainBlack,
+  fontFamily: 'Cairo',
+);
