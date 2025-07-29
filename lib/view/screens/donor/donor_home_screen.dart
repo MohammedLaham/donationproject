@@ -1,4 +1,5 @@
 import 'package:donationproject/constant.dart';
+import 'package:donationproject/core/helpers/font_weight_helper.dart';
 import 'package:donationproject/core/routing/routes.dart';
 import 'package:donationproject/view/widgets/custom_app_bar.dart';
 import 'package:donationproject/view/widgets/custom_card.dart';
@@ -61,7 +62,9 @@ class _DonorHomeScreenState extends State<DonorHomeScreen> {
             // أيقونة االشات
             GestureDetector(
               child: SvgPicture.asset('assets/svgs/message.svg'),
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, Routes.chatScreen);
+              },
             ),
             horizontalSpacing(16),
             Stack(
@@ -69,7 +72,10 @@ class _DonorHomeScreenState extends State<DonorHomeScreen> {
               children: [
                 GestureDetector(
                   child: SvgPicture.asset('assets/svgs/notification.svg'),
-                  onTap: () {},
+                  onTap: () {
+                                    Navigator.pushNamed(context, Routes.notificationScreen);
+
+                  },
                 ),
                 PositionedDirectional(
                   end: -10.w,
@@ -107,11 +113,17 @@ class _DonorHomeScreenState extends State<DonorHomeScreen> {
                     Expanded(
                       // البحث
                       child: CustomTextField(
-                        horizantal: 10.w,
+                        horizantal: 8.w,
                         hintText: 'ابحث ...',
                         borderRadius: 4,
+                        hintTextStyle: TextStyle(
+                          fontFamily: 'Cairo',
+                          color: mainGray,
+                          fontWeight: FontWeightHeper.medium,
+                          fontSize: 14.sp,
+                        ),
                         prefixIcons: Icons.search,
-                        textColor: mainGray,
+                        textColor: mainBlack,
                         label: '',
                         backgroundColor: lightGray,
                         controller: _searchController,
@@ -158,7 +170,6 @@ class _DonorHomeScreenState extends State<DonorHomeScreen> {
                     },
                   ),
                 ),
-
               ],
             ),
           ),

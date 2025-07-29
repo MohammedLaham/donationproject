@@ -98,7 +98,14 @@ class DonationItem extends StatelessWidget {
               ),
               horizontalSpacing(18),
               Expanded(
-                child: CustomOutlineButton(text: 'مراسلة', onTap: chatbOnTap),
+                child: CustomOutlineButton(
+                  text: 'مراسلة',
+                  onTap: chatbOnTap,
+                  icon: SvgPicture.asset(
+                    'assets/svgs/message.svg',
+                    color: greenColor,
+                  ),
+                ),
               ),
             ],
           ),

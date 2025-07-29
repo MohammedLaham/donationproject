@@ -1,16 +1,24 @@
 import 'package:donationproject/constant.dart';
+import 'package:donationproject/core/helpers/helpers.dart';
 import 'package:donationproject/core/helpers/spacing.dart';
 import 'package:donationproject/core/routing/routes.dart';
+import 'package:donationproject/view/screens/donor/change_password_screen.dart';
+import 'package:donationproject/view/screens/donor/personal_donor_detailed_info_screen.dart';
 import 'package:donationproject/view/widgets/custom_app_bar.dart';
 import 'package:donationproject/view/widgets/profile_menu_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class DonorProfileScreen extends StatelessWidget {
+class DonorProfileScreen extends StatefulWidget {
   const DonorProfileScreen({super.key, this.onNavigateTo});
 
   final void Function(int index)? onNavigateTo;
 
+  @override
+  State<DonorProfileScreen> createState() => _DonorProfileScreenState();
+}
+
+class _DonorProfileScreenState extends State<DonorProfileScreen> with Helpers {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -67,9 +75,15 @@ class DonorProfileScreen extends StatelessWidget {
                     title: 'البيانات الشخصية',
                     leadingIcon: Icons.person_outline,
                     onTap: () {
-                      Navigator.pushNamed(
+                      Navigator.push(
                         context,
-                        Routes.personalDonorDetailedInfoScreen,
+                        MaterialPageRoute(
+                          builder: (context) => PersonalDonorDetailedInfoScreen(
+                            name: 'متبرع 19',
+                            email: 'Ahmed123@gmail.com',
+                            currentPassword: '12345',
+                          ),
+                        ),
                       );
                       //  onNavigateTo?.call(3);
                     },
@@ -78,7 +92,13 @@ class DonorProfileScreen extends StatelessWidget {
                     title: 'تغيير كلمة المرور',
                     leadingIcon: Icons.key_outlined,
                     onTap: () {
-                      // onNavigateTo?.call(4); // شاشة تغيير كلمة المرور
+                       Navigator.push(
+                        context,                   
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              ChangePasswordScreen(currentPassword: '12345'),
+                        ),
+                      );
                     },
                   ),
                   ProfileMenuItem(
@@ -92,7 +112,7 @@ class DonorProfileScreen extends StatelessWidget {
                     title: 'سياسة الخصوصية',
                     leadingIcon: Icons.privacy_tip_outlined,
                     onTap: () {
-                      // onNavigateTo?.call(6); // شاشة سياسة الخصوصية
+                      Navigator.pushNamed(context, Routes.privacyPolicyScreen);
                     },
                   ),
                   ProfileMenuItem(
@@ -103,6 +123,21 @@ class DonorProfileScreen extends StatelessWidget {
                     },
                   ),
                   ProfileMenuItem(
+                    onTap: () {
+                      showCustomDialog(
+                        context: context,
+                        title: 'تسجيل الخروج',
+
+                        content: Text(
+                          'هل أنت متأكد من أنك تريد تسجيل الخروج؟',
+                          style: font14BlackMedium,
+                        ),
+                        confirmButtonText: 'تسجيل الخروج',
+                        onConfirm: () {
+                          // تنفيذ عملية تسجيل الخروج
+                        },
+                      );
+                    },
                     title: 'تسجيل الخروج',
                     leadingIcon: Icons.logout,
                   ),

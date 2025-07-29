@@ -37,7 +37,7 @@ class CustomElevatedButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           icon ?? SizedBox(),
-          horizontalSpacing(8),
+          icon != null ? horizontalSpacing(8) : SizedBox(),
           Text(
             text,
             style: font16BlackBold.copyWith(

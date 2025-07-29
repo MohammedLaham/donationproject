@@ -60,7 +60,7 @@ class OrphanCard extends StatelessWidget {
                           child: Icon(
                             Icons.close,
                             color: Colors.white,
-                            size: 20,
+                            size: 16
                           ),
                         ),
                       ),

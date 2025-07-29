@@ -5,13 +5,24 @@ import 'package:flutter_svg/svg.dart';
 
 class CustomOutlineButton extends StatelessWidget {
   final double btn_height;
+  final double textFontSize;
   final String text;
+  final Widget icon;
+  final Color borderColor;
+  final Color backgroundColor;
+  final Color textColor;
   final VoidCallback onTap;
+
   const CustomOutlineButton({
     super.key,
     this.btn_height = 48,
     required this.text,
     required this.onTap,
+    this.icon = const SizedBox(),
+    this.borderColor = Colors.green,
+    this.textColor = greenColor,
+    this.backgroundColor = Colors.white,
+    this.textFontSize = 14,
   });
 
   @override
@@ -24,20 +35,27 @@ class CustomOutlineButton extends StatelessWidget {
           ),
         ),
         side: WidgetStatePropertyAll<BorderSide>(
-          BorderSide(color: greenColor, width: 1),
+          BorderSide(color: borderColor, width: 1),
         ),
-        backgroundColor: WidgetStatePropertyAll<Color>(Colors.white),
-        minimumSize: WidgetStatePropertyAll<Size>(Size(double.infinity, 48)),
+        backgroundColor: WidgetStatePropertyAll<Color>(backgroundColor),
+        minimumSize: WidgetStatePropertyAll<Size>(
+          Size(double.infinity, btn_height),
+        ),
       ),
       onPressed: onTap,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          SvgPicture.asset('assets/svgs/message.svg', color: greenColor),
+          icon,
           horizontalSpacing(4),
           Text(
             text,
-            style: font16BlackBold.copyWith(color: greenColor, fontSize: 14),
+            style: font16BlackBold.copyWith(
+              color: textColor,
+              fontSize: textFontSize,
+              // overflow: TextOverflow.ellipsis,
+            ),
           ),
         ],
       ),

@@ -1,5 +1,6 @@
 import 'package:donationproject/constant.dart';
 import 'package:donationproject/core/helpers/spacing.dart';
+import 'package:donationproject/core/routing/routes.dart';
 import 'package:donationproject/view/widgets/custom_app_bar.dart';
 import 'package:donationproject/view/widgets/custom_elevated_button.dart';
 import 'package:donationproject/view/widgets/custom_outline_button.dart';
@@ -59,17 +60,29 @@ class OrphanInfoScreen extends StatelessWidget {
                         Expanded(
                           child: CustomElevatedButton(
                             onTap: () {
-                              //TODO:
+                              Navigator.pushNamed(
+                                context,
+                                Routes.confirmDonationScreen,
+                              );
                             },
+                            textFontSize: 16,
                             text: 'تأكيد التبرع',
                           ),
                         ),
                         horizontalSpacing(16),
                         // زر المراسلة
                         Expanded(
-                          child: CustomOutlineButton(text: 'مراسلة', onTap: (){
-                            // TODO:
-                          })
+                          child: CustomOutlineButton(
+                            text: 'مراسلة',
+                            textFontSize: 16,
+                            icon: SvgPicture.asset(
+                              'assets/svgs/message.svg',
+                              color: greenColor,
+                            ),
+                            onTap: () {
+                              Navigator.pushNamed(context, Routes.chatScreen);
+                            },
+                          ),
                         ),
                       ],
                     ),
@@ -211,10 +224,11 @@ class OrphanInfoScreen extends StatelessWidget {
                             subtitle: "999999",
                             leadingIcon: SvgPicture.asset(
                               'assets/svgs/bank_account.svg',
-                              fit: BoxFit.cover,
+                              // fit: BoxFit.cover,
                             ),
                             trailingIcon: SvgPicture.asset(
                               'assets/svgs/copy.svg',
+                              width: 20.w,
                             ),
                             onTap: () {
                               //TODO:
@@ -255,9 +269,11 @@ class OrphanInfoScreen extends StatelessWidget {
                             onTap: () {
                               //TODO:
                             },
-                            leadingIcon: SvgPicture.asset(
-                              'assets/svgs/paypal.svg',
+                            leadingIcon: Icon(
+                              Icons.paypal_outlined,
+                              color: greenColor,
                             ),
+                            // SvgPicture.asset('assets/svgs/paypal.svg'),
                           ),
                         ),
                       ],

@@ -3,6 +3,7 @@ import 'package:donationproject/core/helpers/spacing.dart';
 import 'package:donationproject/view/widgets/custom_app_bar.dart';
 import 'package:donationproject/view/widgets/custom_elevated_button.dart';
 import 'package:donationproject/view/widgets/custom_textfield.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -66,11 +67,13 @@ class ConfirmDonationScreen extends StatelessWidget {
                   Text('وثيقة إثبات التبرع', style: font16BlackMedium),
                   verticalSpacing(16),
                   // مربع رقع الصورة
-                  Container(
-                    padding: EdgeInsetsDirectional.all(8),
-                    decoration: BoxDecoration(
-                      border: BoxBorder.all(color: greenColor, width: 1),
-                      borderRadius: BorderRadius.circular(8.r),
+                  DottedBorder(
+                    options: RoundedRectDottedBorderOptions(
+                      dashPattern: [10, 5],
+                      color: greenColor,
+                      strokeWidth: 1,
+                      padding: EdgeInsets.all(8),
+                      radius: Radius.circular(8),
                     ),
                     child: CustomElevatedButton(
                       onTap: () {},
@@ -79,6 +82,7 @@ class ConfirmDonationScreen extends StatelessWidget {
                       icon: SvgPicture.asset('assets/svgs/upload_cloud.svg'),
                     ),
                   ),
+
                   verticalSpacing(8),
                   Text(
                     'أقصى حد رفع الصورة 2 جيجابايت',
