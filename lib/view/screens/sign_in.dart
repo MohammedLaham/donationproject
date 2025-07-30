@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../core/color/constant.dart';
 import '../widgets/button.dart';
 import '../widgets/custom_textfield.dart';
+import 'SignUp.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -123,14 +124,16 @@ class _SignInState extends State<SignIn> {
                   ),
 
                   // زر الدخول
-                  Button(
-                    borderRadius: 30,
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    text: 'Login',
-                    backgr: primaryColor,
-                    color: secondaryColor,
-                    onPressed: () {},
-                  ),
+                 Center(
+                   child:  Button(
+                     borderRadius: 30,
+                     width: MediaQuery.of(context).size.width * 0.8,
+                     text: 'Login',
+                     backgr: primaryColor,
+                     color: secondaryColor,
+                     onPressed: () {},
+                   ),
+                 ),
                   Row(
                     children: [
                       Text(
@@ -138,7 +141,13 @@ class _SignInState extends State<SignIn> {
                         style: TextStyle(fontSize: 15),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Signup()),
+                          );
+
+                        },
                         child: Text(
                           'Create Account',
                           style: TextStyle(color: primaryColor, fontSize: 18),
