@@ -1,13 +1,14 @@
 import 'package:donationproject/constant.dart';
 import 'package:donationproject/core/helpers/spacing.dart';
+import 'package:donationproject/view/screens/donor/change_password_screen.dart';
 import 'package:donationproject/view/screens/donor/orphan_chat_screen.dart';
 import 'package:donationproject/view/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class DonorNotificationScreen extends StatelessWidget {
-  const DonorNotificationScreen({super.key});
+class DonorChatsScreen extends StatelessWidget {
+  const DonorChatsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +23,9 @@ class DonorNotificationScreen extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
-            title: Text('الإشعارات', style: font20WhiteBold),
+            title: Text('الدردشات', style: font20WhiteBold),
           ),
-          // البيانات الشخصية للمتبرع
+          // قائمة الدردشات
           Expanded(
             child: Padding(
               padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
@@ -48,7 +49,7 @@ class DonorNotificationScreen extends StatelessWidget {
                               children: [
                                 Row(
                                   children: [
-                                    Text('إشعار جديد', style: font16BlackBold),
+                                    Text('أحمد ياسر', style: font16BlackBold),
                                     Spacer(),
                                     Text(
                                       'منذ 1 دقيقة',
@@ -59,20 +60,17 @@ class DonorNotificationScreen extends StatelessWidget {
                                 verticalSpacing(9.h),
                               ],
                             ),
-                            leading: Container(
-                              padding: EdgeInsetsDirectional.all(8),
-                              width: 40.w,
-                              height: 40.h,
-                              decoration: BoxDecoration(
-                                color: greenColor,
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: SvgPicture.asset(
-                                'assets/svgs/notification.svg',
+                            leading: CircleAvatar(
+                              backgroundColor: Colors.grey[400],
+                              radius: 22.5,
+                              child: Icon(
+                                Icons.person,
+                                color: Colors.white,
+                                size: 32,
                               ),
                             ),
                             subtitle: Text(
-                              'شارك بخيرك وكن سببًا في البسمة',
+                              'وعليكم السلام ورحمة الله وبركاته',
                               style: font14BlackRegular,
                             ),
                             onTap: () {
@@ -81,9 +79,7 @@ class DonorNotificationScreen extends StatelessWidget {
                                 MaterialPageRoute(
                                   builder: (context) {
                                     //TODO: تمرير اليتيم
-                                    return OrphanChatScreen(
-                                      orphan: 'أحمد ياسر',
-                                    );
+                                    return OrphanChatScreen(orphan :'أحمد ياسر',);
                                   },
                                 ),
                               );

@@ -62,7 +62,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     verticalSpacing(8),
 
                     CustomTextField(
-                      prefixIcons: Icons.lock_outline,
+                      prefixIcon: Icon(Icons.lock_outline),
                       label: '',
                       obscureText: isCurrentObscured,
                       suffixIcon: IconButton(
@@ -90,7 +90,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     CustomTextField(
                       label: '',
                       textColor: mainGray,
-                      prefixIcons: Icons.lock_outline,
+                      prefixIcon: Icon(Icons.lock_outline),
                       // hintText: '100',
                       backgroundColor: lightGray,
                       borderRadius: 4,
@@ -132,7 +132,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         },
                       ),
                       textColor: mainGray,
-                      prefixIcons: Icons.lock_outline,
+                      prefixIcon: Icon(Icons.lock_outline),
                       backgroundColor: lightGray,
                       borderRadius: 4,
                     ),

@@ -21,6 +21,13 @@ TextStyle font20BlackBold = TextStyle(
 
   fontFamily: 'Cairo',
 );
+TextStyle font20BlackMedium = TextStyle(
+  fontSize: 20.sp,
+  fontWeight: FontWeightHeper.medium,
+  color: mainBlack,
+
+  fontFamily: 'Cairo',
+);
 TextStyle font16BlackBold = TextStyle(
   fontSize: 16.sp,
   fontFamily: 'Cairo',

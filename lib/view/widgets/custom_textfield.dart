@@ -17,13 +17,13 @@ class CustomTextField extends StatelessWidget {
   final TextStyle hintTextStyle;
   final double horizantal;
   final double borderRadius;
-  final IconData? prefixIcons;
+  final Widget? prefixIcon;
   final Widget? suffixIcon;
 
   const CustomTextField({
     super.key,
     required this.label,
-    this.prefixIcons,
+    this.prefixIcon,
     this.hintTextStyle = const TextStyle(color: Color(0xFF009963)),
     this.hintText,
     this.controller,
@@ -34,7 +34,8 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     this.vertical = 0,
     this.horizantal = 0,
-    this.borderRadius = 20, this.suffixIcon,
+    this.borderRadius = 20,
+    this.suffixIcon,
   });
 
   @override
@@ -56,10 +57,15 @@ class CustomTextField extends StatelessWidget {
       ),
       decoration: InputDecoration(
         suffixIcon: obscureText != null ? suffixIcon : SizedBox(),
-        prefixIcon: prefixIcons != null
-            ? Icon(prefixIcons, color: mainGray)
-            : null,
+        prefixIcon: prefixIcon != null
+            ? Padding(
+                padding: const EdgeInsetsDirectional.only(start: 12.0),
+                child: prefixIcon,
+              )
+            : SizedBox(),
+        prefixIconColor: mainGray,
 
+        prefixIconConstraints: BoxConstraints(minHeight: 20, minWidth: 20),
         contentPadding: EdgeInsetsDirectional.symmetric(
           vertical: vertical,
           horizontal: horizantal,

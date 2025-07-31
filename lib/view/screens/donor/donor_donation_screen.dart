@@ -1,5 +1,6 @@
 import 'package:donationproject/constant.dart';
 import 'package:donationproject/core/helpers/spacing.dart';
+import 'package:donationproject/view/screens/donor/orphan_chat_screen.dart';
 import 'package:donationproject/view/widgets/custom_app_bar.dart';
 import 'package:donationproject/view/widgets/donation_item.dart';
 import 'package:flutter/material.dart';
@@ -66,8 +67,15 @@ class _DonorDonationScreenState extends State<DonorDonationScreen> {
                           );
                         },
                         chatbOnTap: () {
-                          Navigator.pushNamed(context, Routes.chatScreen);
-                        },
+
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return OrphanChatScreen(orphan: 'أحمد ياسر');
+                              },
+                            ),
+                          );                        },
                       );
                     },
                     itemCount: 4,

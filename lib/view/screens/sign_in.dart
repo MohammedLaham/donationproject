@@ -37,11 +37,14 @@ class _SignInState extends State<SignIn> {
             children: [
               Text('اهلا وسهلا'),
               // اسم المستخدم
-              CustomTextField(prefixIcons: Icons.email,label: 'Email / Mobile Number'),
+              CustomTextField(
+                prefixIcon: Icon(Icons.email),
+                label: 'Email / Mobile Number',
+              ),
               SizedBox(height: 16),
 
               // كلمة المرور
-              CustomTextField(prefixIcons : Icons.lock,label: 'Password'),
+              CustomTextField(prefixIcon: Icon(Icons.lock), label: 'Password'),
               SizedBox(height: 24),
               TextButton(
                 onPressed: () {},
@@ -53,7 +56,7 @@ class _SignInState extends State<SignIn> {
               // زر الدخول
               Button(
                 borderRadius: 30,
-                width:  MediaQuery.of(context).size.width * 0.8,
+                width: MediaQuery.of(context).size.width * 0.8,
                 text: 'Login',
                 backgr: primaryColor,
                 color: secondaryColor,

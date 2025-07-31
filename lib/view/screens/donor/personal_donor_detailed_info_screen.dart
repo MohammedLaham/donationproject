@@ -89,7 +89,7 @@ class _PersonalDonorDetailedInfoScreenState
                             horizantal: 8.w,
                             borderRadius: 4,
                             controller: nameController,
-                            prefixIcons: Icons.person,
+                            prefixIcon: Icon(Icons.person),
                             textColor: mainBlack,
                             label: '',
                             backgroundColor: lightGray,
@@ -123,7 +123,7 @@ class _PersonalDonorDetailedInfoScreenState
                             horizantal: 8.w,
                             borderRadius: 4,
                             controller: emailController,
-                            prefixIcons: Icons.email_outlined,
+                            prefixIcon: Icon(Icons.email_outlined),
                             textColor: mainBlack,
                             label: '',
                             backgroundColor: lightGray,
@@ -143,12 +143,11 @@ class _PersonalDonorDetailedInfoScreenState
                   leadingIcon: Icon(Icons.person, color: greenColor),
                   trailingIcon: SvgPicture.asset('assets/svgs/edit.svg'),
                   onTap: () {
-                              Navigator.push(
+                    Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ChangePasswordScreen(
-                          currentPassword: '12345',
-                        ),
+                        builder: (context) =>
+                            ChangePasswordScreen(currentPassword: '12345'),
                       ),
                     );
                   },

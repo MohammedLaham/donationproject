@@ -1,8 +1,9 @@
 import 'package:donationproject/core/routing/routes.dart';
-import 'package:donationproject/view/screens/donor/chat_screen.dart';
+import 'package:donationproject/view/screens/donor/donor_chats_screen.dart';
 import 'package:donationproject/view/screens/donor/confirm_donation_screen.dart';
 import 'package:donationproject/view/screens/donor/donor_main_screen.dart';
 import 'package:donationproject/view/screens/donor/donor_notification_screen.dart';
+import 'package:donationproject/view/screens/donor/orphan_chat_screen.dart';
 import 'package:donationproject/view/screens/donor/orphan_info_screen.dart';
 import 'package:donationproject/view/screens/donor/personal_donor_detailed_info_screen.dart';
 import 'package:donationproject/view/screens/donor/privacy_policy_screen.dart';
@@ -58,7 +59,7 @@ class MyApp extends StatelessWidget {
           Routes.signInScreen: (context) => const SignIn(),
           Routes.confirmDonationScreen: (context) =>
               const ConfirmDonationScreen(),
-          Routes.chatScreen: (context) => const ChatScreen(),
+          Routes.donorChatsScreen: (context) => const DonorChatsScreen(),
           Routes.notificationScreen: (context) =>
               const DonorNotificationScreen(),
           Routes.privacyPolicyScreen: (context) => const PrivacyPolicyScreen(),
