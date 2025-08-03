@@ -1,4 +1,5 @@
 import 'package:donationproject/core/color/constant.dart';
+import 'package:donationproject/view/screens/requestsentscreen.dart';
 import 'package:donationproject/view/widgets/button.dart';
 import 'package:donationproject/view/widgets/custom_textfield.dart';
 import 'package:donationproject/view/widgets/upload_image_widget.dart';
@@ -320,7 +321,6 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                         mother = false;
                         both = false;
                         _uploadedImagesCount = 0; // 🔁 reset the counter
-
                       });
                     },
                     activeColor: primaryColor,
@@ -346,7 +346,6 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                         father = false;
                         both = false;
                         _uploadedImagesCount = 0; // 🔁 reset the counter
-
                       });
                     },
                     activeColor: primaryColor,
@@ -372,7 +371,6 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                         father = false;
                         mother = false;
                         _uploadedImagesCount = 0; // 🔁 reset the counter
-
                       });
                     },
                     activeColor: primaryColor,
@@ -490,7 +488,16 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                   padding: const EdgeInsets.all(8.0),
                   child: Button(
                     text: 'Submit',
-                    onPressed: isReadyToSubmit ? () {} : null,
+                    onPressed: isReadyToSubmit
+                        ? () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RequestSubmittedScreen(),
+                              ),
+                            );
+                          }
+                        : null,
                     backgr: isReadyToSubmit ? primaryColor : grayColor,
                     width: MediaQuery.of(context).size.width * 0.9,
                     color: secondaryColor,

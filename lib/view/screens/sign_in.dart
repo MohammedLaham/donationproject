@@ -42,7 +42,7 @@ class _SignInState extends State<SignIn> {
 
               child: ClipOval (
                 child: Image.asset(
-                  'assets/images/logo.png',
+                  'assets/images/logo.jpg',
                   width: 160,
                   height: 160,
                   fit: BoxFit.cover,
