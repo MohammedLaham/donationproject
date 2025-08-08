@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/color/constant.dart';
 import '../../../../core/image_helper.dart';
+import '../../../../core/style_helper.dart';
 
 class AdminDrawer extends StatelessWidget with ImageHelper {
   const AdminDrawer({super.key});
@@ -11,18 +12,44 @@ class AdminDrawer extends StatelessWidget with ImageHelper {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.zero,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          UserAccountsDrawerHeader(
-            decoration: const BoxDecoration(color: primaryColor),
-            accountName: const Text('مرحباً بك'),
-            accountEmail: const Text('آخر تسجيل دخول منذ 30 دقيقة'),
-            currentAccountPicture: const CircleAvatar(
-              backgroundColor: Colors.white,
-              child: Icon(Icons.person, color: primaryColor),
+          Container(
+            color: primaryColor,
+            padding:  EdgeInsets.only(left: 16,right: 16, top: 40, bottom: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Image.asset(
+                      'assets/images/person.png',
+                      height: 45,
+                      width: 45,
+                      fit: BoxFit.cover,
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      'مرحباً بك',
+                      style: TextStyles.font20WhiteBold,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+
+                Text(
+                  'آخر تسجيل دخول منذ 30 دقيقة',
+                  style: TextStyles.font12WhiteSemiBold,
+                ),
+              ],
             ),
           ),
+
+
           _buildDrawerItem('home', 'الرئيسية', context, true),
           _buildDrawerItem('orphans', 'الأيتام', context, false),
           _buildDrawerItem('donors', 'المتبرعين', context, false),
@@ -44,6 +71,8 @@ class AdminDrawer extends StatelessWidget with ImageHelper {
         style: TextStyle(
           color: active ? primaryColor : Colors.black,
           fontWeight: active ? FontWeight.bold : FontWeight.normal,
+          fontFamily: 'Cairo',
+          fontSize: 16
         ),
       ),
       onTap: () => Navigator.pop(context),
