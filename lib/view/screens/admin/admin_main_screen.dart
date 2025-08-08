@@ -1,5 +1,6 @@
 import 'package:donationproject/view/screens/admin/widgets/admin_drawer.dart';
 import 'package:donationproject/view/screens/admin/widgets/custom_container.dart';
+import 'package:donationproject/view/screens/admin/widgets/orphans_request_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/color/constant.dart';
@@ -35,9 +36,9 @@ class _AdminMainScreenState extends State<AdminMainScreen> with ImageHelper {
 
             //  طلبات الأيتام
             _buildSectionHeader('طلبات الأيتام', 'request'),
-            _buildOrphanRequestCard('أحمد ياسر', '9 سنوات', false),
-            _buildOrphanRequestCard('أحمد ياسر', '9 سنوات', true),
-            _buildOrphanRequestCard('أحمد ياسر', '9 سنوات', true),
+            OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  false),
+            OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  true),
+            OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  true),
             const SizedBox(height: 20),
 
             //  التبرعات
@@ -105,54 +106,7 @@ class _AdminMainScreenState extends State<AdminMainScreen> with ImageHelper {
     );
   }
 
-  Widget _buildOrphanRequestCard(String name, String age, bool accepted) {
-    return CustomContainer(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.asset(
-              'assets/images/person.png',
-              height: 55,
-              width: 55,
-              fit: BoxFit.cover,
-            ),
-            const SizedBox(width: 8),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(name, style: TextStyles.font16BlackBold),
-                  const SizedBox(height: 8),
 
-                  Row(
-                    children: [
-                      Icon(
-                        accepted ? Icons.check_circle : Icons.cancel,
-                        color: accepted ? primaryColor : Colors.red,
-                        size: 18,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        accepted ? 'يعاني من إعاقة' : 'لا يعاني من إعاقة',
-                        style: TextStyles.font12BlackMedium,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      Spacer(),
-                      Text(age, style: TextStyles.font14BlackMedium),
-
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 
   Widget _buildDonationCard(String donor, String amount, String orphan) {
     return CustomContainer(
@@ -200,3 +154,4 @@ class _AdminMainScreenState extends State<AdminMainScreen> with ImageHelper {
     );
   }
 }
+

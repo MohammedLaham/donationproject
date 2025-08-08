@@ -1,6 +1,8 @@
 import 'package:donationproject/view/screens/admin/admin_main_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'core/routers/router.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -17,6 +19,7 @@ debugShowCheckedModeBanner: false,
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
+      onGenerateRoute: generateRoute,
       home:AdminMainScreen(),
     );
   }

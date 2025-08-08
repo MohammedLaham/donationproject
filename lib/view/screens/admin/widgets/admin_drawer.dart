@@ -1,10 +1,14 @@
 
+import 'package:donationproject/view/screens/admin/widgets/orphans_request_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/color/constant.dart';
 import '../../../../core/image_helper.dart';
+import '../../../../core/routers/nav_helper.dart';
 import '../../../../core/style_helper.dart';
+import '../admin_main_screen.dart';
+import '../admin_orphans_screen.dart';
 
 class AdminDrawer extends StatelessWidget with ImageHelper {
   const AdminDrawer({super.key});
@@ -50,20 +54,20 @@ class AdminDrawer extends StatelessWidget with ImageHelper {
           ),
 
 
-          _buildDrawerItem('home', 'الرئيسية', context, true),
-          _buildDrawerItem('orphans', 'الأيتام', context, false),
-          _buildDrawerItem('donors', 'المتبرعين', context, false),
-          _buildDrawerItem('request', 'طلبات الأيتام', context, false),
-          _buildDrawerItem('request', 'التبرعات', context, false),
-          _buildDrawerItem('notification', 'الإشعارات', context, false),
-          _buildDrawerItem('setting', 'الإعدادات', context, false),
-          _buildDrawerItem('logout', 'تسجيل الخروج', context, false),
+          _buildDrawerItem('home', 'الرئيسية', context, true,AdminMainScreen()),
+          _buildDrawerItem('orphans', 'الأيتام', context, true,AdminOrphansScreen()),
+          _buildDrawerItem('donors', 'المتبرعين', context, false,AdminMainScreen()),
+          _buildDrawerItem('request', 'طلبات الأيتام', context, false,AdminMainScreen()),
+          _buildDrawerItem('request', 'التبرعات', context, false,AdminMainScreen()),
+          _buildDrawerItem('notification', 'الإشعارات', context, false,AdminMainScreen()),
+          _buildDrawerItem('setting', 'الإعدادات', context, false,AdminMainScreen()),
+          _buildDrawerItem('logout', 'تسجيل الخروج', context, false,AdminMainScreen()),
         ],
       ),
     );
   }
 
-  Widget _buildDrawerItem(String icon, String title, BuildContext context, bool active) {
+  Widget _buildDrawerItem(String icon, String title, BuildContext context, bool active,Widget to) {
     return ListTile(
       leading:  AppSvgImage(icon,color: active ? primaryColor : Colors.black,),
       title: Text(
@@ -75,7 +79,7 @@ class AdminDrawer extends StatelessWidget with ImageHelper {
           fontSize: 16
         ),
       ),
-      onTap: () => Navigator.pop(context),
+      onTap: () => NavHelper().go(context, to),
     );
   }
 }
