@@ -1,5 +1,3 @@
-
-import 'package:donationproject/view/screens/admin/widgets/orphans_request_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +8,26 @@ import '../../../../core/style_helper.dart';
 import '../admin_main_screen.dart';
 import '../admin_orphans_screen.dart';
 
-class AdminDrawer extends StatelessWidget with ImageHelper {
+class AdminDrawer extends StatefulWidget  {
   const AdminDrawer({super.key});
+
+  @override
+  State<AdminDrawer> createState() => _AdminDrawerState();
+}
+
+class _AdminDrawerState extends State<AdminDrawer>with ImageHelper {
+  int _selectedIndex = 0;
+
+  final List<Widget> _screens = [
+    AdminMainScreen(),
+    AdminOrphansScreen(),
+    Scaffold(),
+    Scaffold(),
+    Scaffold(),
+    Scaffold(),
+    Scaffold(),
+    Scaffold(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +40,7 @@ class AdminDrawer extends StatelessWidget with ImageHelper {
         children: [
           Container(
             color: primaryColor,
-            padding:  EdgeInsets.only(left: 16,right: 16, top: 40, bottom: 16),
+            padding: const EdgeInsets.only(left: 16, right: 16, top: 40, bottom: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -44,7 +60,6 @@ class AdminDrawer extends StatelessWidget with ImageHelper {
                   ],
                 ),
                 const SizedBox(height: 8),
-
                 Text(
                   'آخر تسجيل دخول منذ 30 دقيقة',
                   style: TextStyles.font12WhiteSemiBold,
@@ -52,34 +67,39 @@ class AdminDrawer extends StatelessWidget with ImageHelper {
               ],
             ),
           ),
-
-
-          _buildDrawerItem('home', 'الرئيسية', context, true,AdminMainScreen()),
-          _buildDrawerItem('orphans', 'الأيتام', context, true,AdminOrphansScreen()),
-          _buildDrawerItem('donors', 'المتبرعين', context, false,AdminMainScreen()),
-          _buildDrawerItem('request', 'طلبات الأيتام', context, false,AdminMainScreen()),
-          _buildDrawerItem('request', 'التبرعات', context, false,AdminMainScreen()),
-          _buildDrawerItem('notification', 'الإشعارات', context, false,AdminMainScreen()),
-          _buildDrawerItem('setting', 'الإعدادات', context, false,AdminMainScreen()),
-          _buildDrawerItem('logout', 'تسجيل الخروج', context, false,AdminMainScreen()),
+          _buildDrawerItem(0, 'home', 'الرئيسية', context),
+          _buildDrawerItem(1, 'orphans', 'الأيتام', context),
+          _buildDrawerItem(2, 'donors', 'المتبرعين', context),
+          _buildDrawerItem(3, 'request', 'طلبات الأيتام', context),
+          _buildDrawerItem(4, 'request', 'التبرعات', context),
+          _buildDrawerItem(5, 'notification', 'الإشعارات', context),
+          _buildDrawerItem(6, 'setting', 'الإعدادات', context),
+          _buildDrawerItem(7, 'logout', 'تسجيل الخروج', context),
         ],
       ),
     );
   }
 
-  Widget _buildDrawerItem(String icon, String title, BuildContext context, bool active,Widget to) {
+  Widget _buildDrawerItem(int index, String icon, String title, BuildContext context) {
+    final bool active = index == _selectedIndex;
     return ListTile(
-      leading:  AppSvgImage(icon,color: active ? primaryColor : Colors.black,),
+      leading: AppSvgImage(icon, color: active ? primaryColor : Colors.black),
       title: Text(
         title,
         style: TextStyle(
           color: active ? primaryColor : Colors.black,
           fontWeight: active ? FontWeight.bold : FontWeight.normal,
           fontFamily: 'Cairo',
-          fontSize: 16
+          fontSize: 16,
         ),
       ),
-      onTap: () => NavHelper().go(context, to),
+      onTap: () {
+        setState(() {
+          _selectedIndex = index;
+        });
+        NavHelper().go(context, _screens[index]);
+      },
     );
   }
 }
+
