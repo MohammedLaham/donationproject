@@ -5,7 +5,7 @@ import 'package:donationproject/view/screens/admin/widgets/orphans_request_card.
 import 'package:flutter/material.dart';
 
 import '../../../core/style_helper.dart';
-import '../../widgets/button.dart';
+import '../../widgets/custom_textfield.dart';
 
 class AdminOrphansScreen extends StatelessWidget with ImageHelper {
   const AdminOrphansScreen({super.key});
@@ -18,51 +18,9 @@ class AdminOrphansScreen extends StatelessWidget with ImageHelper {
         padding: EdgeInsetsDirectional.symmetric(horizontal: 16),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Button(
-                width: double.infinity,
-                color: Colors.white,
-                text: ' إضافة يتيم',
-                backgr: primaryColor,
-                borderRadius: 5,
-                onPressed: () {},
-              ),
-            ),
+            buildButton(),
             const SizedBox(height: 12),
-            Row(
-              children: [
-                Container(
-                  height: 48,
-                  width: 48,
-                  decoration: BoxDecoration(
-                    color: primaryColor,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Icon(Icons.filter_alt_outlined, color: Colors.white),
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: '...ابحث',
-                      prefixIcon: const Icon(Icons.search),
-                      filled: true,
-                      fillColor: Colors.white,
-                      contentPadding: const EdgeInsets.symmetric(
-                        vertical: 0,
-                        horizontal: 16,
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide.none,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-
+            buildSearch(),
             const SizedBox(height: 16),
             OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  true),
             OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  false),
@@ -72,5 +30,85 @@ class AdminOrphansScreen extends StatelessWidget with ImageHelper {
         ),
       ),
     );
+  }
+
+  Widget buildSearch() {
+    return Row(
+            children: [
+              Expanded(
+              child:
+              TextField(
+                decoration: InputDecoration(
+                  hintText: '...ابحث',
+                  hintStyle: TextStyles.font14GreyMedium,
+                  prefixIcon: const Icon(Icons.search,color: lightGreyColor,),
+                  filled: true,
+                  fillColor:secondaryColor,
+                  contentPadding: const EdgeInsets.symmetric(
+                    vertical: 0,
+                    horizontal: 16,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(4),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+              // CustomTextField(
+              //  controller: TextEditingController(),
+              //   hintText: '...ابحث',
+              //   label:'ابحث' ,
+              //   backgroundColor: secondaryColor,
+              //   horizantal: 16,
+              //   vertical: 0,
+              //   prefixIcons:Icons.search,
+              //   textColor: lightGreyColor,
+              // )
+
+            ),
+              const SizedBox(width: 8),
+              Container(
+                height: 36,
+                width: 36,
+                decoration: BoxDecoration(
+                  color: primaryColor,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: AppSvgImage('filter', ),
+              ),
+
+            ],
+          );
+  }
+
+  Widget buildButton() {
+    return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0,),
+            child:
+            ElevatedButton(
+              onPressed:(){},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: primaryColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: AppSvgImage('add-circle', width: 24, height: 24),
+                    ),
+                    Text('إضافة يتيم', style: TextStyles.font16WhiteBold),
+
+                  ],
+                ),
+              ),
+            ),
+
+          );
   }
 }

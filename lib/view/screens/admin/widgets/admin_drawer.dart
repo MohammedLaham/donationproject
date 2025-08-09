@@ -97,7 +97,7 @@ class _AdminDrawerState extends State<AdminDrawer>with ImageHelper {
         setState(() {
           _selectedIndex = index;
         });
-        NavHelper().go(context, _screens[index]);
+        NavHelper().go(context, _screens[index],replace:true);
       },
     );
   }
