@@ -1,4 +1,5 @@
 import 'package:donationproject/view/screens/admin/admin_main_screen.dart';
+import 'package:donationproject/view/screens/sign_in.dart';
 import 'package:flutter/material.dart';
 
 import 'core/routers/router.dart';
@@ -16,7 +17,6 @@ class MyApp extends StatelessWidget {
 debugShowCheckedModeBanner: false,
       title: 'Donation App',
       theme: ThemeData(
-
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       onGenerateRoute: generateRoute,

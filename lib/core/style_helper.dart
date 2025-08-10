@@ -67,6 +67,13 @@ class TextStyles {
     fontFamily: 'Cairo',
   );
 
+  static TextStyle font14BlackSemiBold= TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeightHelper.semiBold,
+    color: Colors.black,
+    fontFamily: 'Cairo',
+  );
+
   static TextStyle font14GreyMedium = TextStyle(
     fontSize: 14,
     fontWeight: FontWeightHelper.medium,
