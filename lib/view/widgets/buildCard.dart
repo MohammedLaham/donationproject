@@ -1,27 +1,14 @@
-import 'package:donationproject/view/widgets/buildInfoRow.dart';
-import 'package:donationproject/view/widgets/buildPersonalInfoCard.dart';
-import 'package:donationproject/view/widgets/satusrequest.dart';
 import 'package:flutter/material.dart';
 
-class RequestSubmittedScreen extends StatelessWidget {
-  const RequestSubmittedScreen({super.key});
+class BuildCard extends StatelessWidget {
+  final IconData? icon;
+  final String? title;
+  final String? description;
+  const BuildCard({super.key,required this.icon,required this.title,required this.description});
 
   @override
   Widget build(BuildContext context) {
-    return StatusRequest(
-      hintRequest:
-          "The request has been sent successfully and is awaiting approval.",
-      descriptionRequest:
-          "Your application login request has been sent. Please wait while your submitted data is reviewed and the request is accepted.",
-    );
-  }
-
-  Widget _buildCard({
-    required IconData icon,
-    required String title,
-    required String description,
-  }) {
-    return Container(
+     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
@@ -39,7 +26,7 @@ class RequestSubmittedScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  title,
+                  title!,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
@@ -48,7 +35,7 @@ class RequestSubmittedScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 6),
                 Text(
-                  description,
+                  description!,
                   style: const TextStyle(fontSize: 14),
                   textDirection: TextDirection.ltr,
                 ),
@@ -58,9 +45,5 @@ class RequestSubmittedScreen extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  Widget _buildInfoRow(IconData icon, String title, {String? downloadText}) {
-    return BuildInfoRow();
   }
 }

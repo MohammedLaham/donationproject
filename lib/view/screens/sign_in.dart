@@ -1,3 +1,4 @@
+import 'package:donationproject/view/screens/forgetpassword.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/color/constant.dart';
@@ -37,19 +38,16 @@ class _SignInState extends State<SignIn> {
         children: [
           SizedBox(height: 80),
 
-
-            Center(
-
-              child: ClipOval (
-                child: Image.asset(
-                  'assets/images/logo.jpg',
-                  width: 160,
-                  height: 160,
-                  fit: BoxFit.cover,
-
-                ),
+          Center(
+            child: ClipOval(
+              child: Image.asset(
+                'assets/images/logo.jpg',
+                width: 160,
+                height: 160,
+                fit: BoxFit.cover,
               ),
             ),
+          ),
 
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -114,7 +112,12 @@ class _SignInState extends State<SignIn> {
                       Text("Remember me"),
                       Spacer(flex: 20),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ForgetPassword()),
+                          );
+                        },
                         child: Text(
                           'Forget Password?',
                           style: TextStyle(color: primaryColor),
@@ -124,16 +127,16 @@ class _SignInState extends State<SignIn> {
                   ),
 
                   // زر الدخول
-                 Center(
-                   child:  Button(
-                     borderRadius: 30,
-                     width: MediaQuery.of(context).size.width * 0.8,
-                     text: 'Login',
-                     backgr: primaryColor,
-                     color: secondaryColor,
-                     onPressed: () {},
-                   ),
-                 ),
+                  Center(
+                    child: Button(
+                      borderRadius: 30,
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      text: 'Login',
+                      backgr: primaryColor,
+                      color: secondaryColor,
+                      onPressed: () {},
+                    ),
+                  ),
                   Row(
                     children: [
                       Text(
@@ -146,7 +149,6 @@ class _SignInState extends State<SignIn> {
                             context,
                             MaterialPageRoute(builder: (context) => Signup()),
                           );
-
                         },
                         child: Text(
                           'Create Account',

@@ -1,5 +1,6 @@
 import 'package:donationproject/core/color/constant.dart';
-import 'package:donationproject/view/screens/requestsentscreen.dart';
+import 'package:donationproject/view/screens/requestScreenBank.dart';
+import 'package:donationproject/view/screens/requestScreenPalPay.dart';
 import 'package:donationproject/view/widgets/button.dart';
 import 'package:donationproject/view/widgets/custom_textfield.dart';
 import 'package:donationproject/view/widgets/upload_image_widget.dart';
@@ -7,7 +8,6 @@ import 'package:flutter/material.dart';
 
 class CompleteMembership extends StatefulWidget {
   const CompleteMembership({super.key});
-
   @override
   State<CompleteMembership> createState() => _CompleteMembershipState();
 }
@@ -446,7 +446,9 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                   padding: const EdgeInsets.all(8.0),
                   child: Button(
                     text: 'Submit',
-                    onPressed: isReadyToSubmit ? () {} : null,
+                    onPressed: isReadyToSubmit ? () {
+
+                    } : null,
 
                     backgr: isReadyToSubmit ? primaryColor : grayColor,
                     width: MediaQuery.of(context).size.width * 0.9,
@@ -490,12 +492,22 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                     text: 'Submit',
                     onPressed: isReadyToSubmit
                         ? () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => RequestSubmittedScreen(),
-                              ),
-                            );
+                      if(palpay){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RequestScreenPalPay(),
+                          ),
+                        );
+                      }else if(accountBank){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RequestScreenBank(),
+                          ),
+                        );
+                      }
+
                           }
                         : null,
                     backgr: isReadyToSubmit ? primaryColor : grayColor,

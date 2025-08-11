@@ -1,18 +1,19 @@
-import 'package:donationproject/view/widgets/buildInfoRow.dart';
-import 'package:donationproject/view/widgets/buildPersonalInfoCard.dart';
-import 'package:donationproject/view/widgets/satusrequest.dart';
+import 'package:donationproject/view/widgets/statusrequestBank.dart';
 import 'package:flutter/material.dart';
 
-class RequestSubmittedScreen extends StatelessWidget {
-  const RequestSubmittedScreen({super.key});
+import '../widgets/buildInfoRow.dart';
+import '../widgets/satusrequest.dart';
+
+class RequestScreenBank extends StatelessWidget {
+  const RequestScreenBank({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return StatusRequest(
+    return StatusRequestBank(
       hintRequest:
-          "The request has been sent successfully and is awaiting approval.",
+      "The request has been sent successfully and is awaiting approval.",
       descriptionRequest:
-          "Your application login request has been sent. Please wait while your submitted data is reviewed and the request is accepted.",
+      "Your application login request has been sent. Please wait while your submitted data is reviewed and the request is accepted.",
     );
   }
 
