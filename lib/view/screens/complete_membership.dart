@@ -5,6 +5,7 @@ import 'package:donationproject/view/widgets/button.dart';
 import 'package:donationproject/view/widgets/custom_textfield.dart';
 import 'package:donationproject/view/widgets/upload_image_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CompleteMembership extends StatefulWidget {
   const CompleteMembership({super.key});
@@ -37,10 +38,10 @@ class _CompleteMembershipState extends State<CompleteMembership> {
   bool both = false;
   String? selectedBank;
   List<String> banks = [
-    'Bank of Palestine',
-    'Islamic Bank',
-    'Quds Bank',
-    'National Bank',
+    '39'.tr,
+    '40'.tr,
+    '41'.tr,
+    '42'.tr,
   ];
 
   @override
@@ -50,7 +51,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
         backgroundColor: primaryColor,
         centerTitle: true,
         title: Text(
-          'Complete the membership application',
+          '18'.tr,
           style: TextStyle(fontSize: 20, color: secondaryColor),
         ),
         automaticallyImplyLeading: false,
@@ -66,7 +67,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
-                  'Enter the following information to complete the membership application',
+                  '19'.tr,
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -74,7 +75,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                 controller: _dateBirthController,
 
                 label: '',
-                hintText: 'Date Birth',
+                hintText: '20'.tr,
                 prefixIcons: Icons.date_range,
                 isDateField: true,
               ),
@@ -82,12 +83,12 @@ class _CompleteMembershipState extends State<CompleteMembership> {
 
               CustomTextField(
                 controller: _numberOfFamilyController,
-                label: 'Number Of Family',
+                label: '21'.tr,
                 prefixIcons: Icons.family_restroom,
               ),
               SizedBox(height: 20),
               Text(
-                'Gender',
+                '22'.tr,
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
               Row(
@@ -111,7 +112,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                     ),
                   ),
                   Text(
-                    'Male',
+                    '23'.tr,
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(width: 50),
@@ -134,7 +135,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                     ),
                   ),
                   Text(
-                    'Female',
+                    '24'.tr,
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -142,7 +143,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
 
               SizedBox(height: 20),
               Text(
-                'Having a disability',
+                '25'.tr,
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
               Row(
@@ -166,7 +167,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                     ),
                   ),
                   Text(
-                    'Yes',
+                    '26'.tr,
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(width: 50),
@@ -189,14 +190,14 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                     ),
                   ),
                   Text(
-                    'No',
+                    '27'.tr,
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
               SizedBox(height: 20),
               Text(
-                'Receiving support',
+                '28'.tr,
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
               Row(
@@ -220,7 +221,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                     ),
                   ),
                   Text(
-                    'Bank Account',
+                    '29'.tr,
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(width: 50),
@@ -243,7 +244,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                     ),
                   ),
                   Text(
-                    'PalPay',
+                    '30'.tr,
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -251,7 +252,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
               if (accountBank) ...[
                 SizedBox(height: 20),
                 Text(
-                  'Name Of Bank',
+                  '31'.tr,
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 ),
                 DropdownButtonFormField<String>(
@@ -268,7 +269,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                       vertical: 12,
                     ),
                   ),
-                  hint: Text('Choose a Bank'),
+                  hint: Text('32'.tr),
                   icon: Icon(Icons.arrow_drop_down, color: primaryColor),
                   dropdownColor: Colors.white,
                   items: banks.map((bank) {
@@ -285,30 +286,30 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Your bank account number',
+                  '33'.tr,
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 ),
                 CustomTextField(
                   controller: _numberOfFamilyController,
-                  label: 'IBAN',
+                  label: '34'.tr,
                   prefixIcons: Icons.food_bank,
                 ),
               ],
               if (palpay) ...[
                 SizedBox(height: 20),
                 Text(
-                  'IBAN OR Phone Number',
+                  '35'.tr,
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 ),
                 CustomTextField(
                   controller: _numberOfFamilyController,
-                  label: 'Account Of PalPay',
+                  label: '36'.tr,
                   prefixIcons: Icons.payment,
                 ),
               ],
               SizedBox(height: 20),
               Text(
-                'The reason for orphanhood',
+                '37'.tr,
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
               Row(
@@ -334,7 +335,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                     ),
                   ),
                   Text(
-                    'Father',
+                    '38'.tr,
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(width: 25),
@@ -359,7 +360,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                     ),
                   ),
                   Text(
-                    'Mother',
+                    '43'.tr,
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(width: 25),
@@ -384,7 +385,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                     ),
                   ),
                   Text(
-                    'Both',
+                    '44'.tr,
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -392,7 +393,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
               if (father) ...[
                 UploadImageWidget(
                   key: const ValueKey("father-death"),
-                  title: "Father's death certificate",
+                  title: '45'.tr,
                   onUploadComplete: () {
                     setState(() {
                       _uploadedImagesCount++;
@@ -401,7 +402,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                 ),
                 UploadImageWidget(
                   key: const ValueKey("father-birth"),
-                  title: "Birth Certificate",
+                  title: '48'.tr,
                   onUploadComplete: () {
                     setState(() {
                       _uploadedImagesCount++;
@@ -412,9 +413,8 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Button(
-                    text: 'Submit',
+                    text: '49'.tr,
                     onPressed: isReadyToSubmit ? () {} : null,
-
                     backgr: isReadyToSubmit ? primaryColor : grayColor,
                     width: MediaQuery.of(context).size.width * 0.9,
                     color: secondaryColor,
@@ -425,7 +425,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
               if (mother) ...[
                 UploadImageWidget(
                   key: const ValueKey("mother-death"),
-                  title: "Mother's death certificate",
+                  title: '50'.tr,
                   onUploadComplete: () {
                     setState(() {
                       _uploadedImagesCount++;
@@ -434,7 +434,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                 ),
                 UploadImageWidget(
                   key: const ValueKey("mother-birth"),
-                  title: "Birth Certificate",
+                  title: '48'.tr,
                   onUploadComplete: () {
                     setState(() {
                       _uploadedImagesCount++;
@@ -445,7 +445,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Button(
-                    text: 'Submit',
+                    text: '49'.tr,
                     onPressed: isReadyToSubmit ? () {
 
                     } : null,
@@ -460,7 +460,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
               if (both) ...[
                 UploadImageWidget(
                   key: const ValueKey("both-father-death"),
-                  title: "Father's death certificate",
+                  title: '45'.tr,
                   onUploadComplete: () {
                     setState(() {
                       _uploadedImagesCount++;
@@ -469,7 +469,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                 ),
                 UploadImageWidget(
                   key: const ValueKey("both-mother-death"),
-                  title: "Mother's death certificate",
+                  title:'50'.tr,
                   onUploadComplete: () {
                     setState(() {
                       _uploadedImagesCount++;
@@ -478,7 +478,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                 ),
                 UploadImageWidget(
                   key: const ValueKey("both-birth"),
-                  title: "Birth Certificate",
+                  title: '48'.tr,
                   onUploadComplete: () {
                     setState(() {
                       _uploadedImagesCount++;
@@ -489,7 +489,7 @@ class _CompleteMembershipState extends State<CompleteMembership> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Button(
-                    text: 'Submit',
+                    text: '49'.tr,
                     onPressed: isReadyToSubmit
                         ? () {
                       if(palpay){

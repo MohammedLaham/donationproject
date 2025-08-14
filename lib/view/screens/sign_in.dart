@@ -1,5 +1,6 @@
 import 'package:donationproject/view/screens/forgetpassword.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../core/color/constant.dart';
 import '../widgets/button.dart';
@@ -57,7 +58,7 @@ class _SignInState extends State<SignIn> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Welcome',
+                    '2'.tr,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -66,19 +67,19 @@ class _SignInState extends State<SignIn> {
                   ),
                   SizedBox(height: 10),
                   Text(
-                    'Log in to continue',
+                    '3'.tr,
                     style: TextStyle(fontSize: 18, color: primaryColor),
                   ),
                   SizedBox(height: 30),
                   // اسم المستخدم
                   CustomTextField(
                     prefixIcons: Icons.email,
-                    label: 'Email / Mobile Number',
+                    label: '4'.tr,
                   ),
                   SizedBox(height: 16),
 
                   // كلمة المرور
-                  CustomTextField(prefixIcons: Icons.lock, label: 'Password'),
+                  CustomTextField(prefixIcons: Icons.lock, label: '5'.tr),
                   SizedBox(height: 24),
                   Row(
                     children: [
@@ -109,7 +110,7 @@ class _SignInState extends State<SignIn> {
                         ),
                       ),
                       SizedBox(width: 8),
-                      Text("Remember me"),
+                      Text('6'.tr),
                       Spacer(flex: 20),
                       TextButton(
                         onPressed: () {
@@ -119,7 +120,7 @@ class _SignInState extends State<SignIn> {
                           );
                         },
                         child: Text(
-                          'Forget Password?',
+                          '7'.tr,
                           style: TextStyle(color: primaryColor),
                         ),
                       ),
@@ -131,31 +132,33 @@ class _SignInState extends State<SignIn> {
                     child: Button(
                       borderRadius: 30,
                       width: MediaQuery.of(context).size.width * 0.8,
-                      text: 'Login',
+                      text: '8'.tr,
                       backgr: primaryColor,
                       color: secondaryColor,
                       onPressed: () {},
                     ),
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        "Don't have an account?",
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Signup()),
-                          );
-                        },
-                        child: Text(
-                          'Create Account',
-                          style: TextStyle(color: primaryColor, fontSize: 18),
+               Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '9'.tr,
+                          style: TextStyle(fontSize: 15),
                         ),
-                      ),
-                    ],
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Signup()),
+                            );
+                          },
+                          child: Text(
+                            '10'.tr,
+                            style: TextStyle(color: primaryColor, fontSize: 18),
+                          ),
+                        ),
+                      ],
+
                   ),
                 ],
               ),

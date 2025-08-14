@@ -1,6 +1,7 @@
 import 'package:donationproject/core/color/constant.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
@@ -77,14 +78,14 @@ class _UploadImageWidgetState extends State<UploadImageWidget> {
                 child: CircularProgressIndicator(color: Colors.white),
               )
                   : _image == null
-                  ? const Center(
+                  ?  Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(Icons.upload, color: Colors.white),
                     SizedBox(width: 8),
                     Text(
-                      'Upload the image',
+                      '46'.tr,
                       style: TextStyle(
                           color: Colors.white, fontSize: 16),
                     ),
@@ -104,8 +105,8 @@ class _UploadImageWidgetState extends State<UploadImageWidget> {
           ),
         ),
         const SizedBox(height: 6),
-        const Text(
-          'Maximum image upload size is 2 GB',
+         Text(
+          '47'.tr,
           style: TextStyle(fontSize: 12, color: Colors.green),
           textDirection: TextDirection.rtl,
         ),

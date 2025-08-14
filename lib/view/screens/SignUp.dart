@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:donationproject/view/screens/complete_membership.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../core/color/constant.dart';
@@ -113,7 +114,7 @@ class _SignupState extends State<Signup> {
                         ),
                         alignment: Alignment.center,
                         child: Text(
-                          'Orphan',
+                          '11'.tr,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -133,7 +134,7 @@ class _SignupState extends State<Signup> {
                         ),
                         alignment: Alignment.center,
                         child: Text(
-                          'Donor',
+                          '12'.tr,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -149,13 +150,12 @@ class _SignupState extends State<Signup> {
             const SizedBox(height: 30),
 
             Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Align(
-                alignment: Alignment.centerLeft,
+              padding: const EdgeInsets.all(8.0),
+
                 child: Text(
-                  'Create Account for follow',
-                  style: TextStyle(fontSize: 18),
-                ),
+                  '13'.tr,
+                  style: TextStyle(fontSize: 18,),
+
               ),
             ),
             SizedBox(height: 30),
@@ -163,13 +163,13 @@ class _SignupState extends State<Signup> {
             // Fields
             CustomTextField(
               prefixIcons: Icons.person,
-              label: 'Full Name',
+              label: '14'.tr,
               controller: _nameController,
             ),
             SizedBox(height: 30),
             CustomTextField(
               prefixIcons: Icons.email,
-              label: 'Email',
+              label: '4'.tr,
               controller: _emailController,
               keyboardType: TextInputType.emailAddress,
             ),
@@ -177,7 +177,7 @@ class _SignupState extends State<Signup> {
             CustomTextField(
               isPassword: true,
               prefixIcons: Icons.lock,
-              label: 'Password',
+              label: '5'.tr,
               controller: _passwordController,
             ),
             SizedBox(height: 30),
@@ -185,18 +185,18 @@ class _SignupState extends State<Signup> {
             CustomTextField(
               isPassword: true,
               prefixIcons: Icons.lock,
-              label: 'Confirm Password',
+              label: '15'.tr,
               controller: _confirmPasswordController,
             ),
             SizedBox(height: 50),
             Row(
               children: [
                 Text(
-                  'By clicking SignUp,',
+                  '16'.tr,
                   style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  'I agree to the Privacy and Terms of Use Policy.',
+                  '17'.tr,
                   style: TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.bold,
@@ -205,19 +205,19 @@ class _SignupState extends State<Signup> {
                 ),
               ],
             ),
-            if (!isOrphan) ...[
-              const SizedBox(height: 20),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'Upload Documents',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ),
-              const SizedBox(height: 8),
-              buildImagePicker("Personal Photo", _personalPhoto, true),
-              buildImagePicker("ID / Passport", _idImage, false),
-            ],
+            // if (!isOrphan) ...[
+            //   // const SizedBox(height: 20),
+            //   // Align(
+            //   //   alignment: Alignment.centerLeft,
+            //   //   child: Text(
+            //   //     'Upload Documents',
+            //   //     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            //   //   ),
+            //   // ),
+            //   // const SizedBox(height: 8),
+            //   // buildImagePicker("Personal Photo", _personalPhoto, true),
+            //   // buildImagePicker("ID / Passport", _idImage, false),
+            // ],
 
             const SizedBox(height: 30),
 
@@ -227,12 +227,15 @@ class _SignupState extends State<Signup> {
               height: 48,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CompleteMembership(),
-                    ),
-                  );
+                  if (isOrphan) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CompleteMembership(),
+                      ),
+                    );
+                  }
+
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF009963),
@@ -240,8 +243,8 @@ class _SignupState extends State<Signup> {
                     borderRadius: BorderRadius.circular(24),
                   ),
                 ),
-                child: const Text(
-                  'Create Account',
+                child:  Text(
+                  '10'.tr,
                   style: TextStyle(color: Colors.white),
                 ),
               ),
