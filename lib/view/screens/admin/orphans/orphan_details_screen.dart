@@ -4,7 +4,7 @@ import 'package:donationproject/view/screens/admin/widgets/custom_appBar.dart';
 import 'package:donationproject/view/screens/admin/widgets/custom_container.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/style_helper.dart';
+import '../../../../core/style_helper.dart';
 
 class OrphanDetailsScreen extends StatelessWidget with ImageHelper {
   const OrphanDetailsScreen({super.key});
@@ -65,7 +65,7 @@ class OrphanDetailsScreen extends StatelessWidget with ImageHelper {
                   Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsetsGeometry.directional(start: 2.0,end: 8,top: 8,bottom: 8),
                         child: AppSvgImage('img'),
                       ),
                       Text('الصور المرفقة', style: TextStyles.font16BlackBold),
@@ -105,13 +105,12 @@ class OrphanDetailsScreen extends StatelessWidget with ImageHelper {
                         Row(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsetsGeometry.directional(end: 8,top: 8,bottom: 8),
                               child: AppSvgImage(leading),
                             ),
                             Text(title, style: TextStyles.font16BlackBold),
                           ],
                         ),
-
                         Row(
                           children: [
                             Text(subTitle, style: TextStyles.font14BlackMedium),

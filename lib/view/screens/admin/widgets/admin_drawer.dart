@@ -5,8 +5,10 @@ import '../../../../core/color/constant.dart';
 import '../../../../core/image_helper.dart';
 import '../../../../core/routers/nav_helper.dart';
 import '../../../../core/style_helper.dart';
+import '../donors/admin_donors_screen.dart';
 import '../admin_main_screen.dart';
-import '../admin_orphans_screen.dart';
+import '../orohans_requests/admin_orphans_requests_screen.dart';
+import '../orphans/admin_orphans_screen.dart';
 
 class AdminDrawer extends StatefulWidget  {
   const AdminDrawer({super.key});
@@ -21,8 +23,8 @@ class _AdminDrawerState extends State<AdminDrawer>with ImageHelper {
   final List<Widget> _screens = [
     AdminMainScreen(),
     AdminOrphansScreen(),
-    Scaffold(),
-    Scaffold(),
+    AdminDonorsScreen(),
+    AdminOrphansRequestsScreen(),
     Scaffold(),
     Scaffold(),
     Scaffold(),

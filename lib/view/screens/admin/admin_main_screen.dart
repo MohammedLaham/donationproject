@@ -1,6 +1,8 @@
 import 'package:donationproject/view/screens/admin/widgets/admin_drawer.dart';
 import 'package:donationproject/view/screens/admin/widgets/custom_container.dart';
+import 'package:donationproject/view/screens/admin/widgets/donation_card.dart';
 import 'package:donationproject/view/screens/admin/widgets/orphans_request_card.dart';
+import 'package:donationproject/view/screens/admin/widgets/section_header.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/color/constant.dart';
@@ -35,17 +37,18 @@ class _AdminMainScreenState extends State<AdminMainScreen> with ImageHelper {
             const SizedBox(height: 20),
 
             //  طلبات الأيتام
-            _buildSectionHeader('طلبات الأيتام', 'request'),
+            SectionHeader(title:'طلبات الأيتام',icon: 'request'),
             OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  false),
             OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  true),
             OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  true),
             const SizedBox(height: 20),
 
             //  التبرعات
-            _buildSectionHeader('التبرعات', 'request'),
-            _buildDonationCard('متبرع 19', '100 شيكل', 'أحمد ياسر'),
-            _buildDonationCard('متبرع 19', '100 شيكل', 'أحمد ياسر'),
-            _buildDonationCard('متبرع 19', '100 شيكل', 'أحمد ياسر'),
+            SectionHeader(title:'التبرعات', icon:'request'),
+            DonationCard(donor:'متبرع 19',orphan: 'أحمد ياسر' ,amount: '100 شيكل',),
+            DonationCard(donor:'متبرع 19',orphan: 'أحمد ياسر' ,amount: '100 شيكل',),
+            DonationCard(donor:'متبرع 19',orphan: 'أحمد ياسر' ,amount: '100 شيكل',),
+
           ],
         ),
       ),
@@ -82,29 +85,6 @@ class _AdminMainScreenState extends State<AdminMainScreen> with ImageHelper {
     );
   }
 
-  Widget _buildSectionHeader(String title, String icon) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              AppSvgImage(icon, color: primaryColor, height: 24, width: 24),
-              const SizedBox(width: 6),
-              Text(
-                title,
-                style: TextStyles.font16GreenBold,
-              ),
-            ],
-          ),
-          Spacer(),
-          Text('عرض الكل', style: TextStyles.font12GreyRegular),
-          Icon(Icons.arrow_forward_ios, size: 16, color: lightGreyColor),
-        ],
-      ),
-    );
-  }
 
 
 

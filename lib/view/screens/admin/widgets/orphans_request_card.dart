@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/color/constant.dart';
 import '../../../../core/routers/nav_helper.dart';
 import '../../../../core/style_helper.dart';
-import '../orphan_details_screen.dart';
+import '../orphans/orphan_details_screen.dart';
 import 'custom_container.dart';
 
 class OrphansRequestCard extends StatelessWidget {
