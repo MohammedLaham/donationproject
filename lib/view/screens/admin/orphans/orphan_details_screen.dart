@@ -2,12 +2,14 @@ import 'package:donationproject/core/image_helper.dart';
 import 'package:donationproject/view/screens/admin/widgets/custom_add_btn.dart';
 import 'package:donationproject/view/screens/admin/widgets/custom_appBar.dart';
 import 'package:donationproject/view/screens/admin/widgets/custom_container.dart';
+import 'package:donationproject/view/screens/admin/widgets/section_header.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/style_helper.dart';
 
 class OrphanDetailsScreen extends StatelessWidget with ImageHelper {
-  const OrphanDetailsScreen({super.key});
+  final bool denied;
+  const OrphanDetailsScreen({super.key, required this.denied});
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class OrphanDetailsScreen extends StatelessWidget with ImageHelper {
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
             children: [
+              denied?buildStatusContainer():SizedBox.shrink(),
               buildCustomDetailsContainer(leading: 'profile',title:'الإسم الكامل',subTitle: 'أحمد ياسر',hasEdit: true),
               Row(
                 children: [
@@ -121,5 +124,18 @@ class OrphanDetailsScreen extends StatelessWidget with ImageHelper {
                       ],
                     ),
                   );
+  }
+
+  Widget buildStatusContainer() {
+    return Container(
+      child: CustomContainer(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SectionHeader(title: 'الطلب مرفوض', icon: 'request',seeAll: false,),
+              Text('تم رفض طلب تسجيل الدخول إلى التطبيق',style: TextStyles.font12BlackMedium,),
+              Text('شهادة الميلاد لا تطابق للإسم المسجل في التطبيق',style: TextStyles.font12BlackMedium,),
+      ],
+    )),);
   }
 }

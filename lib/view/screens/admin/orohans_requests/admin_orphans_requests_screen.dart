@@ -23,6 +23,7 @@ class _AdminOrphansRequestsScreenState extends State<AdminOrphansRequestsScreen>
           children: [
             Container(
               height: 40,
+              margin:const EdgeInsets.symmetric(vertical: 8),
               decoration: BoxDecoration(
                 border: Border.all(color: primaryColor,width: 0.5),
                 borderRadius: BorderRadius.circular(8),
@@ -75,19 +76,19 @@ class _AdminOrphansRequestsScreenState extends State<AdminOrphansRequestsScreen>
               ),
             ),
             isInProgress?
-                Column(
+            Column(
                   children:[
-                    OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  false),
+                    OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  false,),
                     OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  false),
                     OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  false),
                   ]
                 ):
-          Column(
-          children:[
-          OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  true),
-        OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  true),
-        OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  false),
-        ]
+            Column(
+                children:[
+                  OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  true,denied: true,),
+                  OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  true,denied: true,),
+                  OrphansRequestCard(name: 'أحمد ياسر',age: '9 سنوات',hasDisability:  false,denied: true,),
+                ]
     ),
 
           ],

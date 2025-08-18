@@ -10,9 +10,10 @@ class OrphansRequestCard extends StatelessWidget {
   final String name;
   final String age;
   final bool hasDisability;
+  final bool denied;
 
   const OrphansRequestCard({
-    super.key, required this.name, required this.age, required this.hasDisability,
+    super.key, required this.name, required this.age, required this.hasDisability,  this.denied = false,
   });
 
   @override
@@ -22,7 +23,7 @@ class OrphansRequestCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
         child: InkWell(
           onTap: (){
-            NavHelper().go(context, OrphanDetailsScreen(),replace: true);
+            NavHelper().go(context, OrphanDetailsScreen(denied: denied,),replace: true, );
           },
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
