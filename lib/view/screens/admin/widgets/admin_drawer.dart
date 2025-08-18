@@ -5,6 +5,7 @@ import '../../../../core/color/constant.dart';
 import '../../../../core/image_helper.dart';
 import '../../../../core/routers/nav_helper.dart';
 import '../../../../core/style_helper.dart';
+import '../donations/admin_donations_screen.dart';
 import '../donors/admin_donors_screen.dart';
 import '../admin_main_screen.dart';
 import '../orohans_requests/admin_orphans_requests_screen.dart';
@@ -25,7 +26,7 @@ class _AdminDrawerState extends State<AdminDrawer>with ImageHelper {
     AdminOrphansScreen(),
     AdminDonorsScreen(),
     AdminOrphansRequestsScreen(),
-    Scaffold(),
+    AdminDonationsScreen(),
     Scaffold(),
     Scaffold(),
     Scaffold(),

@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
 debugShowCheckedModeBanner: false,
       title: 'Donation App',
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       onGenerateRoute: generateRoute,

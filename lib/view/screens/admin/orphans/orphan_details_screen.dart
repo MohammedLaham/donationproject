@@ -6,6 +6,8 @@ import 'package:donationproject/view/screens/admin/widgets/section_header.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/style_helper.dart';
+import '../widgets/attachment_widget.dart';
+import '../widgets/custom_details_container.dart';
 
 class OrphanDetailsScreen extends StatelessWidget with ImageHelper {
   final bool denied;
@@ -21,47 +23,56 @@ class OrphanDetailsScreen extends StatelessWidget with ImageHelper {
           child: Column(
             children: [
               denied?buildStatusContainer():SizedBox.shrink(),
-              buildCustomDetailsContainer(leading: 'profile',title:'الإسم الكامل',subTitle: 'أحمد ياسر',hasEdit: true),
+              CustomDetailsContainer(leading: 'profile',title:'الإسم الكامل',subTitle: 'أحمد ياسر',hasEdit: true),
               Row(
                 children: [
                   Expanded(
                     child:
-              buildCustomDetailsContainer(leading:'age' ,title:'العمر' ,subTitle:  '9 سنوات',),
+              CustomDetailsContainer(leading:'age' ,title:'العمر' ,subTitle:  '9 سنوات',),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: CustomDetailsContainer(title: 'الجنس',leading: 'gen',subTitle: 'ذكر',hasEdit: true),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child:
+              CustomDetailsContainer(leading:'calendar' ,title:'تاريخ الميلاد' ,subTitle:  '11/11/2011',hasEdit: true),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: CustomDetailsContainer(title: 'أفراد العائلة',leading: 'family',subTitle: '3',hasEdit: true),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child:
+              CustomDetailsContainer(leading:'reason' ,title:'سبب اليتم' ,subTitle:  'وفاة الأب',hasEdit: true),
                   ),
                   const SizedBox(width: 16),
 
                   Expanded(
-                    child: buildCustomDetailsContainer(title: 'الجنس',leading: 'gen',subTitle: 'ذكر',hasEdit: true),
+                    child: CustomDetailsContainer(title: 'حالة الإعاقة',leading: 'dis',subTitle: 'يوجد إعاقة',hasEdit: true),
                   ),
                 ],
               ),
-              Row(
-                children: [
-                  Expanded(
-                    child:
-              buildCustomDetailsContainer(leading:'calendar' ,title:'تاريخ الميلاد' ,subTitle:  '11/11/2011',hasEdit: true),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: buildCustomDetailsContainer(title: 'أفراد العائلة',leading: 'family',subTitle: '3',hasEdit: true),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child:
-              buildCustomDetailsContainer(leading:'reason' ,title:'سبب اليتم' ,subTitle:  'وفاة الأب',hasEdit: true),
-                  ),
-                  const SizedBox(width: 16),
+              CustomDetailsContainer(leading: 'email',title:'البريد الإلكتروني',subTitle: 'Ahmed123@gmail.com',hasEdit: true),
 
-                  Expanded(
-                    child: buildCustomDetailsContainer(title: 'حالة الإعاقة',leading: 'dis',subTitle: 'يوجد إعاقة',hasEdit: true),
-                  ),
+              AttachmentWidget(
+                sectionTitle: 'الصور المرفقة',
+                attachments: [
+                  AttachmentItem(title: 'شهادة وفاة الأب', onTap: () {}),
+                  AttachmentItem(title: 'شهادة الميلاد', onTap: () {}),
                 ],
+                leadingIcon: AppSvgImage('img'),
               ),
-              buildCustomDetailsContainer(leading: 'email',title:'البريد الإلكتروني',subTitle: 'Ahmed123@gmail.com',hasEdit: true),
-            CustomContainer(
+
+              CustomContainer(
               child: Column(
                 children: [
                   Row(
@@ -97,32 +108,6 @@ class OrphanDetailsScreen extends StatelessWidget with ImageHelper {
         ),
       ),
     );
-  }
-
-  CustomContainer buildCustomDetailsContainer({required String leading, required String title, required String subTitle, bool hasEdit = false}) {
-    return
-      CustomContainer(
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsetsGeometry.directional(end: 8,top: 8,bottom: 8),
-                              child: AppSvgImage(leading),
-                            ),
-                            Text(title, style: TextStyles.font16BlackBold),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Text(subTitle, style: TextStyles.font14BlackMedium),
-                            Spacer(),
-                            hasEdit?AppSvgImage('edit'):SizedBox.shrink(),
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
   }
 
   Widget buildStatusContainer() {

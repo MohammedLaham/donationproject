@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import '../../../../core/routers/nav_helper.dart';
 import '../../../../core/style_helper.dart';
+import '../donations/donation_details_screen.dart';
 import 'custom_container.dart';
 
 class DonationCard extends StatelessWidget with ImageHelper{
@@ -20,8 +21,11 @@ class DonationCard extends StatelessWidget with ImageHelper{
         child:
         InkWell(
           onTap: () {
-            NavHelper().go(context, DonorDetailsScreen(),replace: true);
-
+            NavHelper().go(context,
+                date != null?
+                DonorDetailsScreen()
+                :DonationDetailsScreen(),
+                replace: true,);
           },
           child: Row(
               children:[

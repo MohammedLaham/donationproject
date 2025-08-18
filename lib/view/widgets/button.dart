@@ -7,13 +7,14 @@ class Button extends StatelessWidget {
     required this.onPressed,
     required this.backgr,
     required this.color,
-    required this.width, required this.borderRadius,
+    required this.width, required this.borderRadius, this.borderColor,
   });
 
   final String text;
   final VoidCallback? onPressed;
   final Color? backgr;
   final Color? color;
+  final Color? borderColor;
   final double? width;
   final double? borderRadius;
 
@@ -27,10 +28,11 @@ class Button extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: backgr,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius!),
+            borderRadius: BorderRadius.circular(borderRadius!),side: BorderSide(color: borderColor??Colors.transparent)
+
           ),
         ),
-        child: Text(text, style: TextStyle(color: color)),
+        child: Text(text, style: TextStyle(color: color,fontFamily: 'Cairo')),
       ),
     );
   }
