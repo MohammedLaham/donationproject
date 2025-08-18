@@ -39,12 +39,11 @@ class OrphanDetailsScreen extends StatelessWidget with ImageHelper {
                 children: [
                   Expanded(
                     child:
-              buildCustomDetailsContainer(leading:'age' ,title:'تاريخ الميلاد' ,subTitle:  '11/11/2011',hasEdit: true),
+              buildCustomDetailsContainer(leading:'calendar' ,title:'تاريخ الميلاد' ,subTitle:  '11/11/2011',hasEdit: true),
                   ),
                   const SizedBox(width: 16),
-
                   Expanded(
-                    child: buildCustomDetailsContainer(title: 'أفراد العائلة',leading: 'gen',subTitle: '3',hasEdit: true),
+                    child: buildCustomDetailsContainer(title: 'أفراد العائلة',leading: 'family',subTitle: '3',hasEdit: true),
                   ),
                 ],
               ),
@@ -52,16 +51,16 @@ class OrphanDetailsScreen extends StatelessWidget with ImageHelper {
                 children: [
                   Expanded(
                     child:
-              buildCustomDetailsContainer(leading:'age' ,title:'سبب اليتم' ,subTitle:  'وفاة الأب',hasEdit: true),
+              buildCustomDetailsContainer(leading:'reason' ,title:'سبب اليتم' ,subTitle:  'وفاة الأب',hasEdit: true),
                   ),
                   const SizedBox(width: 16),
 
                   Expanded(
-                    child: buildCustomDetailsContainer(title: 'حالة الإعاقة',leading: 'gen',subTitle: 'يوجد إعاقة',hasEdit: true),
+                    child: buildCustomDetailsContainer(title: 'حالة الإعاقة',leading: 'dis',subTitle: 'يوجد إعاقة',hasEdit: true),
                   ),
                 ],
               ),
-              buildCustomDetailsContainer(leading: 'profile',title:'البريد الإلكتروني',subTitle: 'Ahmed123@gmail.com',hasEdit: true),
+              buildCustomDetailsContainer(leading: 'email',title:'البريد الإلكتروني',subTitle: 'Ahmed123@gmail.com',hasEdit: true),
             CustomContainer(
               child: Column(
                 children: [
